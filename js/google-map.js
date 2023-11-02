@@ -1,62 +1,28 @@
+// Google Maps JavaScript file
 
-var google;
+function initMap() {
+    // Create a map centered at a specific latitude and longitude
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 51.52502006962166, lng: -0.14067101527136147 }, // Set your desired center coordinates
+        zoom: 7, // Set the initial zoom level
+    });
 
-function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-    // var myLatlng = new google.maps.LatLng(40.71751, -73.990922);
-    var myLatlng = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
-    // 39.399872
-    // -8.224454
-    
-    var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
-        zoom: 7,
-
-        // The latitude and longitude to center the map (always required)
-        center: myLatlng,
-
-        // How you would like to style the map. 
-        scrollwheel: false,
-        styles: [
-            {
-                "featureType": "administrative.country",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "visibility": "simplified"
-                    },
-                    {
-                        "hue": "#ff0000"
-                    }
-                ]
-            }
-        ]
-    };
-
-    
-
-    // Get the HTML DOM element that will contain your map 
-    // We are using a div with id="map" seen below in the <body>
-    var mapElement = document.getElementById('map');
-
-    // Create the Google Map using out element and options defined above
-    var map = new google.maps.Map(mapElement, mapOptions);
-    
-    var addresses = ['New York'];
-
-    for (var x = 0; x < addresses.length; x++) {
-        $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
-            var p = data.results[0].geometry.location
-            var latlng = new google.maps.LatLng(p.lat, p.lng);
-            new google.maps.Marker({
-                position: latlng,
-                map: map,
-                icon: 'images/loc.png'
-            });
-
-        });
-    }
-    
+    // Create a marker on the map
+    var marker = new google.maps.Marker({
+        position: { lat: 51.52502006962166, lng: -0.14067101527136147 }, // Set marker coordinates
+        map: map, // Attach the marker to the map
+        title: 'Marker Title' // Set a title for the marker (optional)
+    });
 }
-google.maps.event.addDomListener(window, 'load', init);
+
+// Load the Google Maps API with your API key
+function loadGoogleMaps() {
+    var script = document.createElement('script');
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBfw_PRz0mCBDSwGfTf4SN8boeJrJSyv-U&callback=initMap';
+    script.defer = true;
+    script.async = true;
+    document.head.appendChild(script);
+}
+
+// Call the function to load the Google Maps API
+loadGoogleMaps();
