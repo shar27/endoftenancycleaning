@@ -8025,13 +8025,16 @@ h1, h2, h3, h4, h5,
 
 .wrap {
   background: #0f7fd9;
-  padding: 0; }
+  padding: 0;
+}
   .wrap .phone {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.8); }
     .wrap .phone a {
       color: white;
-      font-size: 12px; }
+      font-size: 12px; 
+      font-weight:700;
+    }
     .wrap .phone .fa {
       color: rgba(255, 255, 255, 0.8); }
     .wrap .phone .mailus {
