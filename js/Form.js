@@ -24,9 +24,13 @@ contactForm.addEventListener("submit", function(event) {
   emailjs.send("service_dja0xim", "template_c3kloja", templateParams)
     .then(function(response) {
       console.log("Email sent successfully!", response);
+      const success = document.getElementById('successMessage');
+      success.style.display = "block";
       // You can add success message or redirect here
     }, function(error) {
       console.error("Email could not be sent:", error);
+      const fail = document.getElementById('failMessage');
+      fail.style.display = "block";
       // You can handle errors here
     });
 });
