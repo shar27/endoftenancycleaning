@@ -23,6 +23,8 @@
 
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11404517352"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -253,11 +255,19 @@
 			<div class="phone"><h4 class="phone">+44 7907 772 626</h4></div>
 
 	</div>
+
+
+
+
 	<div class="col-lg-6">
 		<p style="display:none;" id="successMessage">Thank you, message sent successfully!</p>
 		<p style="display:none;" id="failMessage">Message not sent</p>
-		<form id="contactForm">
+		<p style="color:red; font-size: 20px;">Please note, we are not hiring at present.</p>
+		<form id="contactForm" method="post">
+			
 			<div class="form-group">
+				
+
 				<label for="name">Name</label>
 				<input type="text" class="form-control" id="name" placeholder="Your Name" required>
 			</div>
@@ -269,7 +279,14 @@
 				<label for="message">Message</label>
 				<textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
 			</div>
-			<button type="submit" class="btn btn-primary w-100 ">Submit</button>
+			<div class="g-recaptcha" data-sitekey="6LfzQC8pAAAAAJVBr9fh230nvq1pbMp4XeANUe4D"></div>
+			<button 
+			 
+			class="btn btn-primary w-100 
+			
+			"
+	
+			>Submit</button>
 		</form>
 	</div>
 	
